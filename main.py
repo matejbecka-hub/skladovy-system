@@ -78,7 +78,10 @@ def vytvorit_objednavku():
     conn.commit()
 
     aktualni_objednavka_id = cursor.lastrowid
-    label_objednavka.config(text=f"Aktuální objednávka ID: {aktualni_objednavka_id}")
+
+    label_objednavka.config(
+        text=f"Aktuální objednávka ID: {aktualni_objednavka_id} | Datum: {datum}"
+    )
 
     vymaz_polozky()
     messagebox.showinfo("Info", "Objednávka vytvořena")
@@ -238,3 +241,4 @@ tk.Button(root, text="Export aktuální objednávky", command=export_objednavky)
     .pack(pady=10)
 
 root.mainloop()
+
